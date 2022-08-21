@@ -1,0 +1,36 @@
+<div class="container noselect">
+    <link rel="stylesheet" href="snakegame.css">
+    <div class="wrapper">
+      <button id="replay">
+        <i class="fas fa-play"></i>
+        RESTART
+      </button>
+      <div id="canvas">
+  
+      </div>
+      <div id="ui">
+        <h2>SCORE
+        </h2>
+        <span id="score">00</span>
+      </div>
+    </div>
+<script src="snakegame.js"></script>
+</div>
+<script>
+  var keys = {};
+window.addEventListener("keydown",
+    function(e){
+        keys[e.keyCode] = true;
+        switch(e.keyCode){
+            case 37: case 39: case 38:  case 40: // Arrow keys
+            case 32: e.preventDefault(); break; // Space
+            default: break; // do not block other keys
+        }
+    },
+false);
+window.addEventListener('keyup',
+    function(e){
+        keys[e.keyCode] = false;
+    },
+false);
+</script>

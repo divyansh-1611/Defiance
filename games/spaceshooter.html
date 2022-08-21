@@ -1,0 +1,35 @@
+<body style="width:900px ; height:800px; overflow:hidden">
+  <link rel="stylesheet" href="spaceshooter.css">
+  <div class="dialogue">
+      <div class="dialogue__content">
+        <h1>Space Shooter</h1>
+        <ul>
+          <li>Use the <span class="key key--arrow">&larr;</span> and <span class="key key--arrow">&rarr;</span> keys to move.</li>
+          <li>Use <span class="key">spacebar</span> to fire lasers.</li>
+        </ul>
+        <button>Start</button>
+      </div>
+    </div>
+    <ul class="hud hud--hidden">
+      <li class="hud__score">Score : <span>0</span></li>
+  </ul>
+  <script src="spaceshooter.js"></script>
+  <script>
+    var keys = {};
+    window.addEventListener("keydown",
+        function(e){
+            keys[e.keyCode] = true;
+            switch(e.keyCode){
+                case 37: case 39: case 38:  case 40: // Arrow keys
+                case 32: e.preventDefault(); break; // Space
+                default: break; // do not block other keys
+            }
+        },
+    false);
+    window.addEventListener('keyup',
+        function(e){
+            keys[e.keyCode] = false;
+        },
+    false);
+  </script>
+</body>
